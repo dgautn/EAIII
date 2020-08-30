@@ -1,0 +1,23 @@
+Circuit: * Z:\mnt\Documentos\Facultad\Electronica Aplicada III\Practicos\repo\EAIII\TP 3\simulaciones\Draft1.asc
+
+WARNING: Less than two connections to node VOUT.  This node is used by B1.
+WARNING: Less than two connections to node VPUL.  This node is used by V1.
+Direct Newton iteration for .op point succeeded.
+
+Date: Sat Aug 29 20:42:00 2020
+Total elapsed time: 4.884 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 1000037
+traniter = 1000034
+tranpoints = 500018
+accept = 500018
+rejected = 0
+matrix size = 4
+fillins = 0
+solver = Normal
+Matrix Compiler1:       3 opcodes  0.1/[0.1]/0.1
+Matrix Compiler2: off  [0.1]/0.1/0.1
+

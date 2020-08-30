@@ -1,8 +1,7 @@
 * Z:\mnt\Documentos\Facultad\Electronica Aplicada III\Practicos\repo\EAIII\TP 3\simulaciones\PLL.asc
 XU1 a b comp_in 0 N004 N005 N002 vco_in VDD 0 dem_out N001 N003 pulsos_de_fase out N006 CD4046Bg
-V1 f_in 0 SINE(0 10m 20k)
 V2 VDD 0 12
-R3 vco_in N003 {R3}
+R3 vco_in N001 {R3}
 C1 a b {C1}
 C2 0 vco_in {C2}
 R1 N004 0 {R1}
@@ -10,10 +9,11 @@ R2 N005 0 {R2}
 R4 dem_out 0 10k
 XU2 0 0 out NC_01 NC_02 NC_03 NC_04 NC_05 NC_06 NC_07 NC_08 NC_09 NC_10 comp_in VDD 0 CD4017B VDD=5 SPEED=1.0 TRIPDT=5e-9
 C3 f_in N002 10n
-.tran 0 50m 40m startup
+B1 f_in 0 V=if((time+0.498),(15*sin(2*pi*25k*time)),(15*sin(2*pi*15k*time)))
+.tran 0 5m 0 1u startup
 .inc CD4046Bg.sub
 .inc CD4000.lib
-.param C1=180p C2=10n
-.param R1=142k R2=100k R3=7k8
+.param R1=10k R2=2k C1=180p
+.param R3=15k C2=10n
 .backanno
 .end

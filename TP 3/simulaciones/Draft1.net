@@ -1,0 +1,6 @@
+* Z:\mnt\Documentos\Facultad\Electronica Aplicada III\Practicos\repo\EAIII\TP 3\simulaciones\Draft1.asc
+B1 Vout 0 V=if((time+0.498),(sin(2*pi*25k*time)),(sin(2*pi*15k*time)))
+V1 Vpul 0 5
+.tran 0 5m 0 10n
+.backanno
+.end
