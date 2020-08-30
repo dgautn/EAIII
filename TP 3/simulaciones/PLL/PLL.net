@@ -14,10 +14,10 @@ V4 sw2 0 PULSE(0 {vdd} 0 1p 1p {1/(2*f2)} {1/f2})
 .tran 0 5m 0 1u startup
 .inc CD4046Bg.sub
 .inc ../CD4000_v.lib
-.param R1=11k R2=10k C1=470p
+.param R1=3.3k R2=10k C1=560p
 .param R3=15k C2=10n
 * Oscilador interno del VCO
 * Filtro RC
-.param f1=15k f2=20k vdd=12
+.param f1=15k f2=25k vdd=12
 .backanno
 .end
