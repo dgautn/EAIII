@@ -1,0 +1,23 @@
+* Z:\mnt\Documentos\Facultad\Electronica Aplicada III\Practicos\repo\EAIII\TP 3\simulaciones\PLL\PLL.asc
+XU1 a b comp_in 0 N003 N004 f_in vco_in VDD 0 dem_out N001 N002 pulsos_de_fase out N005 CD4046Bg
+V2 VDD 0 {vdd}
+R3 vco_in N001 {R3}
+C1 a b {C1}
+C2 0 vco_in {C2}
+R1 N003 0 {R1}
+R2 N004 0 {R2}
+R4 dem_out 0 10k
+XU2 0 0 out NC_01 NC_02 NC_03 NC_04 NC_05 NC_06 NC_07 NC_08 NC_09 NC_10 comp_in VDD 0 CD4017B VDD=5 SPEED=1.0 TRIPDT=5e-9
+B1 f_in 0 V=if((time>1.5m),{V(sw2)},{V(sw1)})
+V3 sw1 0 PULSE(0 {vdd} 0 1p 1p {1/(2*f1)} {1/f1})
+V4 sw2 0 PULSE(0 {vdd} 0 1p 1p {1/(2*f2)} {1/f2})
+.tran 0 5m 0 1u startup
+.inc CD4046Bg.sub
+.inc ../CD4000_v.lib
+.param R1=11k R2=10k C1=470p
+.param R3=15k C2=10n
+* Oscilador interno del VCO
+* Filtro RC
+.param f1=15k f2=20k vdd=12
+.backanno
+.end
