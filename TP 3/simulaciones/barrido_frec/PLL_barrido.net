@@ -1,0 +1,25 @@
+* C:\users\dante\Mis Documentos\LTspiceXVII\TP 3\simulaciones\PLL\PLL_barrido.asc
+XU1 a b comp_in 0 N003 N004 f_in vco_in VDD 0 dem_out N001 N002 pulsos_de_fase out N005 CD4046Bg
+V2 VDD 0 {vdd} Rser=0.001
+R3 vco_in N001 {R3}
+C1 a b {C1}
+C2 0 vco_in {C2}
+R1 N003 0 {R1}
+R2 N004 0 {R2}
+R4 dem_out 0 10k
+XU2 0 0 out NC_01 NC_02 NC_03 NC_04 NC_05 NC_06 NC_07 NC_08 NC_09 NC_10 comp_in VDD 0 CD4017B VDD=5 SPEED=1.0 TRIPDT=5e-9
+B1 f_in 0 V = 6+6*sgn(cos(6.283 * (Fs + (Fe-Fs) / te *( time)/2) * time))
+.inc CD4046Bg.sub
+.inc ../CD4000_v.lib
+.param R1=3.3k R2=10k C1=750p
+.param R3=3.9k C2=10n
+* Oscilador interno del VCO
+* Filtro RC
+.param vdd=12
+.param Fs=1
+.param Fe=30000
+.param te=60m
+.tran 0 {te} 0
+* ascendente V = 6+6*sgn(sin(6.283 * (Fs + (Fe-Fs) / te *( time) / 2) * time))\n \ndescendente V = 6+6*sgn(cos(6.283 *  (Fe - (Fe-Fs) / te *( time)/2) * time))
+.backanno
+.end

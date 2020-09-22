@@ -1,0 +1,36 @@
+Circuit: * C:\users\dante\Mis Documentos\LTspiceXVII\TP 3\simulaciones\PLL\PLL_barrido.asc
+
+WARNING: Less than two connections to node N005.  This node is used by D:U1:3.
+WARNING: Less than two connections to node NC_01.  This node is used by R:U2:OUT0:OUT.
+WARNING: Less than two connections to node NC_02.  This node is used by R:U2:OUT1:OUT.
+WARNING: Less than two connections to node NC_03.  This node is used by R:U2:OUT2:OUT.
+WARNING: Less than two connections to node NC_04.  This node is used by R:U2:OUT3:OUT.
+WARNING: Less than two connections to node NC_05.  This node is used by R:U2:OUT4:OUT.
+WARNING: Less than two connections to node NC_06.  This node is used by R:U2:OUT5:OUT.
+WARNING: Less than two connections to node NC_07.  This node is used by R:U2:OUT6:OUT.
+WARNING: Less than two connections to node NC_08.  This node is used by R:U2:OUT7:OUT.
+WARNING: Less than two connections to node NC_09.  This node is used by R:U2:OUT8:OUT.
+WARNING: Less than two connections to node NC_10.  This node is used by R:U2:OUT9:OUT.
+Direct Newton iteration for .op point succeeded.
+Ignoring empty pin current: Ix(u2:vdd)
+Ignoring empty pin current: Ix(u2:vdd)
+Heightened Def Con from 0.000510891 to 0.000510891
+
+Date: Mon Sep 21 22:31:50 2020
+Total elapsed time: 4.797 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 72656
+traniter = 72625
+tranpoints = 21603
+accept = 16051
+rejected = 5553
+matrix size = 121
+fillins = 8
+solver = Normal
+Thread vector: 31.0/21.2[2] 9.3/8.4[2] 7.6/7.2[1] 3.2/6.6[1]  2592/500
+Matrix Compiler1: 4.25 KB object code size  4.7/3.9/[2.6]
+Matrix Compiler2: 6.54 KB object code size  3.6/4.7/[2.8]
+
