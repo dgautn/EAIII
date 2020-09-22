@@ -1,0 +1,34 @@
+How to use the CD4000 devices.
+
+
+My recommendation is very simple.
+
+
+1.
+Copy the symbol files you need into the folder where you have
+saved your schematic.
+
+
+2.
+Copy CD4000.lib into this folder too.
+
+
+3.
+Include the model file in your schematic with a SPICE-directive.
+
+.inc CD4000.lib
+
+
+Alternatively there is now another library CD4000_v.lib available with 
+inputs and outputs
+ following the real supply voltage.
+
+.inc CD4000_v.lib
+
+
+4.
+Right-mouse-click to the placed symbols and set VDD=xx to the
+value of your supply voltage
+
+
+Helmut
