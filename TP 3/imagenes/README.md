@@ -10,6 +10,7 @@ Las imágenes:
  - tipos_comparadores.pdf
 Fueron extraidos de [2].  
 
+Las capturas de graficos de señale de LTspice fueron exportadas a _Enhanced MetaFile_ (.emf) y editadas con Inkscape o similares.
 
 [1]: [diagrams.net, editor de diagramas online](https://app.diagrams.net)  
 [2]: ["Diseño de un detector de fase integrado con eliminación de la
