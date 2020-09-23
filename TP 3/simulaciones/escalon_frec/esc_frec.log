@@ -7,8 +7,8 @@ Circuit: * Z:\mnt\Documentos\Facultad\Electronica Aplicada III\Practicos\repo\EA
 WARNING: Less than two connections to node F_OUT.  This node is used by B2.
 .OP point found by inspection.
 
-Date: Sun Aug 30 18:21:55 2020
-Total elapsed time: 8.900 seconds.
+Date: Tue Sep 22 20:07:00 2020
+Total elapsed time: 5.951 seconds.
 
 tnom = 27
 temp = 27
@@ -21,6 +21,6 @@ rejected = 151
 matrix size = 6
 fillins = 0
 solver = Normal
-Matrix Compiler1: 110 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler1: 110 bytes object code size  0.1/0.1/[0.1]
 Matrix Compiler2: 266 bytes object code size  0.1/0.2/[0.1]
 
