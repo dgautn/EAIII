@@ -2,7 +2,7 @@
 ## Sobre las imagenes
 
 
-Los gráficos conceptuales estan creados con la aplicación diagrams_ la cual se puede utilizar online en [1].  
+Los gráficos conceptuales estan creados con la aplicación _diagrams_ la cual se puede utilizar online en [1].  
   
 Los archivos fuente se encuentran en la carpeta editables. Para visualizarlos correctamente, es necesario activar la opción de escritura matemática en el menú _Extras_.  
 Las imágenes:  
