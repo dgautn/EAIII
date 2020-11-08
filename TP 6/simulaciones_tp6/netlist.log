@@ -1,0 +1,55 @@
+; Top Design: "AplicadaIII_lib:adapt_smith:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="AplicadaIII_lib:adapt_smith:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+; Library Name: AplicadaIII_lib
+; Cell Name: DA_SmithChartMatch1_adapt_smith
+; View Name: schematic
+define DA_SmithChartMatch1_adapt_smith ( P1  P2 ) 
+parameters  Fp=1 GHz  SourceType=0  SourceEnable=0  Rg=50 Ohm  Lg=1 nH  Cg=1 pF  Zg=(50+j*50) Ohm  SourceFile="ZSource.s1p"  SourceImpType=0  LoadType=5  LoadEnable=0  RL=50 Ohm  LL=1 nH  CL=1 pF  ZL=(100-j*100) Ohm  LoadFile="ZLoad.s1p"  LoadImpType=0  Z0=50 Ohm 
+C:C2  N__0 P2 C=76.527001 pF tune{ 42.515 pF to 127.545 pF by 8.503 pF } 
+L:L1  N__0 0 L=32.97 nH R=1e-12 Ohm Noise=yes  
+C:C1  P1 N__0 C=21.970001 pF 
+end DA_SmithChartMatch1_adapt_smith
+
+; Library Name: AplicadaIII_lib
+; Cell Name: DA_SmithChartMatch2_adapt_smith
+; View Name: schematic
+define DA_SmithChartMatch2_adapt_smith ( P1  P2 ) 
+parameters  Fp=1 GHz  SourceType=0  SourceEnable=0  Rg=50 Ohm  Lg=1 nH  Cg=1 pF  Zg=(50+j*50) Ohm  SourceFile="ZSource.s1p"  SourceImpType=0  LoadType=5  LoadEnable=0  RL=50 Ohm  LL=1 nH  CL=1 pF  ZL=(100-j*100) Ohm  LoadFile="ZLoad.s1p"  LoadImpType=0  Z0=50 Ohm 
+C:C2  N__4 P2 C=3.130239 pF 
+L:L1  N__4 0 L=371.507387 nH R=1e-12 Ohm Noise=yes  
+C:C1  P1 N__4 C=5.066177 pF 
+end DA_SmithChartMatch2_adapt_smith
+
+R:R2  N__15 0 R=9000 Ohm Noise=yes 
+L:L2  N__15 N__23 L=1 H Noise=yes  
+R:R1  N__21 N__15 R=8200 Ohm Noise=yes 
+L:L1  N__2 N__21 L=1 H Noise=yes  
+V_Source:SRC1  N__2 0 Type="V_DC" Vdc=12 V SaveCurrent=1 
+C:C1  N__27 0 C=330 pF 
+R:R4  N__27 0 R=120 Ohm Noise=yes 
+R:R5  N__22 N__21 R=75 Ohm Noise=yes 
+L:L3  N__22 Vc L=1 H Noise=yes  
+Port:Term1  Vin 0 Num=1 Z=50 Ohm Noise=yes 
+DA_SmithChartMatch1_adapt_smith:DA_SmithChartMatch1  N__11 N__23 Fp=100 MHz SourceType=0 SourceEnable=0 Rg=50 Ohm Lg=1 nH Cg=1 pF Zg=50 Ohm SourceFile="ZSource.s1p" SourceImpType=0 LoadType=5 LoadEnable=0 RL=50 Ohm LL=1 nH CL=1 pF ZL=(4.1-j*6.3) Ohm LoadFile="ZLoad.s1p" LoadImpType=0 Z0=50 Ohm 
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=50 MHz Stop=150 MHz Lin=50001 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+Port:Term2  Vout 0 Num=2 Z=50 Ohm Noise=yes 
+DA_SmithChartMatch2_adapt_smith:DA_SmithChartMatch2  N__7 Vc Fp=100 MHz SourceType=0 SourceEnable=0 Rg=50 Ohm Lg=1 nH Cg=1 pF Zg=50 Ohm SourceFile="ZSource.s1p" SourceImpType=0 LoadType=5 LoadEnable=0 RL=50 Ohm LL=1 nH CL=1 pF ZL=(302.15-j*213.3) Ohm LoadFile="ZLoad.s1p" LoadImpType=0 Z0=50 Ohm 
+#uselib "AnalogParts" , "ap_npn_Q2N4410_19930601"
+ap_npn_Q2N4410_19930601:Q1  Vc N__23 N__27 
+Short:I_Probe1  N__7 Vout Mode=0 SaveCurrent=yes 
+Short:I_Probe2  Vin N__11 Mode=0 SaveCurrent=yes 

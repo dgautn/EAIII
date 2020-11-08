@@ -1,0 +1,9 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+DEFINE AplicadaIII_lib AplicadaIII_lib
+ASSIGN AplicadaIII_lib libMode shared
+INCLUDE $HOME/libs/Analog_Parts_vendor_kit/lib.defs
+INCLUDE $HOME/libs/HFDiode_vendor_kit/lib.defs
+INCLUDE $HOME/libs/Meas_SMT_Passive_vendor_kit/lib.defs
+INCLUDE $HOME/libs/Microwave_Transistors_vendor_kit/lib.defs
+INCLUDE $HOME/libs/RF_Passive_SMT_vendor_kit/lib.defs
