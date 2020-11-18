@@ -1,0 +1,134 @@
+; Top Design: "tp7_lib:amp_rf_desarrollado:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+globalnode  Vcc
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="tp7_lib:amp_rf_desarrollado:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+V_Source:SRC1  Vcc 0 Type="V_DC" Vdc=12 V SaveCurrent=0 
+Tran:Tran1 StartTime=2 usec StopTime=2.2 usec MaxTimeStep=0.001 usec LimitStepForTL=yes TimeStepControl=2 TruncTol=7.0 ChargeTol=1.0e-14 IntegMethod=0 MaxGearOrder=2 \
+Mu=0.5 MaxOrder=4 Freq[1]=100 MHz Order[1]=3 HB_Window=no \
+HB_Sol=no ImpApprox=no ShortTL_Delay=1.0 psec ImpMode=1 UseInitCond=no \
+LoadGminDC=no CheckKCL=yes CheckOnlyDeltaV=yes OverloadAlert=no DeviceBypass=no \
+MaxIters=10 MaxItersDC=200 DevOpPtLevel=0 StatusLevel=2 OutputAllPoints=yes \
+NoiseScale=1 ImpEnforcePassivity=yes \
+OutputPlan="Tran1_Output" 
+
+OutputPlan:Tran1_Output \
+      Type="Output" \
+      UseNodeNestLevel=yes \
+      NodeNestLevel=2 \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2 \
+      UseDeviceCurrentNestLevel=no \
+      DeviceCurrentNestLevel=0 \
+      DeviceCurrentDeviceType="All" \
+      DeviceCurrentSymSyntax=yes \
+      UseCurrentNestLevel=yes \
+      CurrentNestLevel=999 \
+      UseDeviceVoltageNestLevel=no \
+      DeviceVoltageNestLevel=0 \
+      DeviceVoltageDeviceType="All"
+
+S_Param:SP2 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz Freq=100 MHz DevOpPtLevel=2 \
+OutputPlan="SP2_Output" 
+
+OutputPlan:SP2_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=2 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=90 MHz Stop=110 MHz Step=40 kHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
+
+global Cap_e=4.16 tune{ 1 to 10 by 0.1 }
+Port:PORT1  In 0 Num=1 Z=50 Ohm P[1]=1 mW Freq[1]=100 MHz    Noise=yes Pac=polar(dbmtow(0),0) LimitPhaseNoiseToCarrier=no 
+Port:Term2  Out 0 Num=2 Z=50 Ohm Noise=yes 
+C:C2  N__10 In_1 C=150.000018 pF 
+C:C1  In N__10 C=18.628095 pF 
+L:L1  N__10 0 L=92.931244 nH R=1e-12 Ohm Noise=yes  
+
+R1a=100000
+R2a=2500 tune{ 50 to 30000 by 100 }
+RCa=180
+REa=30 tune{ 10 to 1000 by 10 }
+CEa=39
+Short:I_in_a  In_1 N__16 Mode=0 SaveCurrent=yes 
+Short:I_c_a  N__18 Out_1 Mode=0 SaveCurrent=yes 
+C:CEa  Ve_a 0 C=CEa pF 
+C:C_neut  N__15 N__16 C=7.5 pF tune{ 1 pF to 20 pF by 0.5 pF } 
+C:C3  Vcc 0 C=100 nF 
+C:C4  N__13 0 C=100 nF 
+R:R1  N__17 0 R=R1a Ohm Noise=yes 
+R:REa  Ve_a 0 R=REa Noise=yes 
+R:RC  Vcc N__18 R=RCa Ohm Noise=yes 
+R:R_neut  N__15 N__18 R=1 kOhm Noise=yes 
+R:R2  N__17 Vcc R=R2a Ohm Noise=yes 
+#uselib "AnalogParts" , "ap_npn_BFR90_19930601"
+ap_npn_BFR90_19930601:Q1  Out_1 N__16 Ve_a 
+L:L2  N__17 N__16 L=4 uH Noise=yes  
+L:L3  Vcc N__13 L=4 uH Noise=yes  
+C:C5  N__11 In_2 C=50.000008 pF 
+C:C6  Out_1 N__11 C=50.87275 pF 
+L:L4  N__11 0 L=103.969672 nH R=1e-12 Ohm Noise=yes  
+R:REb  Ve 0 R=REb Noise=yes 
+
+R1b=100000
+R2b=2450 tune{ 50 to 30000 by 100 }
+RCb=180
+REb=50 tune{ 1 to 100 by 1 }
+CEb=4
+Short:I_c1  N__20 N__5 Mode=0 SaveCurrent=yes 
+C:C7  N__22 0 C=100 nF 
+C:C_neut1  N__23 In_2 C=20 pF tune{ 1 pF to 500 pF by 0.1 pF } 
+C:CEb  Ve 0 C=CEb pF 
+C:C8  Vcc 0 C=100 nF 
+L:L5  Vcc N__20 L=4 uH Noise=yes  
+L:L6  Vcc N__22 L=4 uH Noise=yes  
+L:L7  N__19 In_2 L=4 uH Noise=yes  
+R:R_neut1  N__23 N__20 R=1 kOhm Noise=yes 
+R:R3  N__19 Vcc R=R2b Ohm Noise=yes 
+R:R4  N__19 0 R=R1b Noise=yes 
+#uselib "AnalogParts" , "ap_npn_BFR96_19930601"
+ap_npn_BFR96_19930601:Q2  N__5 In_2 Ve 
+C:C9  N__21 In_3 C=9.999999 pF 
+C:C10  N__5 N__21 C=5.650001 pF 
+L:L8  N__21 0 L=183 nH R=1e-12 Ohm Noise=yes  
+R:R5  In_3 V_offset R=R2c Noise=yes 
+R:R6  Vcc In_3 R=R1c kOhm Noise=yes 
+Short:I_c2  N__26 Out_3 Mode=0 SaveCurrent=yes 
+#uselib "AnalogParts" , "ap_dio_MUR450_19930601"
+ap_dio_MUR450_19930601:D1  V_offset N__25 
+#uselib "AnalogParts" , "ap_dio_MUR450_19930601"
+ap_dio_MUR450_19930601:D2  N__25 0 
+C:C11  Vcc 0 C=27 uF 
+C:C12  Vcc 0 C=10 nF 
+C:C13  V_offset 0 C=10 uF 
+C:C14  Vcc N__26 C=230 pF tune{ 1 pF to 1000 pF by 10 pF } 
+L:L9  Vcc N__26 L=L_ch uH R=0.01 Ohm Noise=yes  
+L:L10  In_3 V_offset L=L_f uH R=0.01 Ohm Noise=yes  
+#uselib "RfTransistorLibrary" , "pb_mot_MRF237_19931202"
+pb_mot_MRF237_19931202:Q3  Out_3 In_3 0 
+
+L_ch=1 tune{ 0.01 to 1000 by 0.1 }
+R1c=1 tune{ 0.01 to 1000 by 0.1 }
+R2c=1 tune{ 0.01 to 1000 by 0.1 }
+L_f=0.1 tune{ 0.001 to 1 by 0.001 }
+C:C15  N__27 Out C=39.999998 pF 
+C:C16  Out_3 N__27 C=760.000003 pF 
+L:L11  N__27 0 L=13.749998 nH R=1e-12 Ohm Noise=yes  

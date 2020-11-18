@@ -1,0 +1,12 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+DEFINE tp7_lib tp7_lib
+ASSIGN tp7_lib libMode shared
+INCLUDE $HOME/libs/Analog_Parts_vendor_kit/lib.defs
+INCLUDE $HOME/libs/HFDiode_vendor_kit/lib.defs
+INCLUDE $HOME/libs/Meas_SMT_Passive_vendor_kit/lib.defs
+INCLUDE $HOME/libs/Microwave_Transistors_vendor_kit/lib.defs
+INCLUDE $HOME/libs/RF_Passive_SMT_vendor_kit/lib.defs
+INCLUDE $HOME/libs/RF_Transistors_vendor_kit/lib.defs
+INCLUDE $HPEESOF_DIR/examples/DesignKit/DemoKit_Non_Linear/DemoKit_Non_Linear_v2.0/lib.defs
+INCLUDE $HPEESOF_DIR\examples\DesignKit\Utilities\pdk_model_include_utility\pdk\lib.defs

@@ -1,0 +1,21 @@
+
+hpeesofsim (*) 511.update1.0 Nov 21 2019, MINT version 5
+    (64-bit windows built: Fri Nov 22, 2019 03:45:24 +0000)
+
+Warning detected by hpeesofsim in LinearCollapse '_2_' during analysis.
+    LinearCollapse is disabled because there is 'DC' analysis present.
+
+SP SP1[1] <tp7_lib:bias_etapa_3:schematic>   freq=100 MHz
+
+
+DC DC1[1] <tp7_lib:bias_etapa_3:schematic>  
+.
+DC convergence achieved in 54 iterations.
+
+
+TRAN Tran1[1] <tp7_lib:bias_etapa_3:schematic>   time=(500 ns->600 ns)
+
+
+Resource usage:
+  Total stopwatch time     =     3.18 seconds.
+

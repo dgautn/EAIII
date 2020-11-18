@@ -1,0 +1,77 @@
+
+hpeesofsim (*) 511.update1.0 Nov 21 2019, MINT version 5
+    (64-bit windows built: Fri Nov 22, 2019 03:45:24 +0000)
+
+Warning detected by hpeesofsim in LinearCollapse '_2_' during analysis.
+    LinearCollapse is disabled because there is 'Tran' analysis present.
+Warning detected by hpeesofsim in topology check during circuit set up.
+    Number of nodes with no DC path to ground (topology corrected): 2
+
+    Matrix is singular (detected at node or branch `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected between nodes or branches `X3.SRC1.i' and `X2.SRC1.i').
+Adding gmin to branches
+
+    Matrix is singular (detected at node or branch `X2.SRC1.i').
+Adding gmin to branches
+..    Matrix is singular (detected at node or branch `X2.SRC1.i').
+Adding gmin to branches
+Warning detected by hpeesofsim during DC analysis `Tran1'.
+    Circuit converged after a virtual resistance of 1 TOhms 
+    was added between each node and ground, and a virtual 
+    resistance of 1 pOhms was inserted in each current branch. 
+    Possible causes include floating nodes or missing ground.
+
+
+
+TRAN Tran1[1] <tp7_lib:amp_rf:schematic>   time=(1.5 us->2 us)
+
+Warning detected by hpeesofsim during TRAN analysis `Tran1'.
+    A virtual resistance of 1 pOhms 
+    was added to branch X2.SRC1.i.
+Warning detected by hpeesofsim during TRAN analysis `Tran1'.
+    A virtual resistance of 1 pOhms 
+    was added to branch X1.SRC1.i.
+Warning detected by hpeesofsim during TRAN analysis `Tran1'.
+    A virtual resistance of 1 pOhms 
+    was added to branch SRC1.i.
+    Matrix is singular (detected at node or branch `X1.SRC1.i').
+Adding gmin to branches
+    Matrix is singular (detected at node or branch `X1.SRC1.i').
+Adding gmin to branches
+
+SP SP1[1] <tp7_lib:amp_rf:schematic>   freq=100 MHz
+
+
+DC X1.DC1[1] <tp7_lib:amp_rf:schematic>  
+.
+    Matrix is singular (detected at node or branch `X1.SRC1.i').
+Adding gmin to branches
+..    Matrix is singular (detected at node or branch `X1.SRC1.i').
+Adding gmin to branches
+
+
+DC convergence achieved in 90 iterations.
+
+SP SP2[1] <tp7_lib:amp_rf:schematic>   freq=(50 MHz->200 MHz)
+
+
+Resource usage:
+  Total stopwatch time     =     6.47 seconds.
+

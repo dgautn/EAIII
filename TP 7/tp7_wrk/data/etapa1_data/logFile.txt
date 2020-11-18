@@ -1,0 +1,12 @@
+
+hpeesofsim (*) 511.update1.0 Nov 21 2019, MINT version 5
+    (64-bit windows built: Fri Nov 22, 2019 03:45:24 +0000)
+
+
+DC DC1[1] <tp7_lib:etapa1:schematic>  
+.
+DC convergence achieved in 43 iterations.
+
+Resource usage:
+  Total stopwatch time     =     1.32 seconds.
+

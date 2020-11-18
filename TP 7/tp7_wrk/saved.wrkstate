@@ -1,0 +1,8 @@
+<!DOCTYPE SaveWorkspaceState>
+<SaveWorkspaceState>
+    <Windows>
+        <Schematic y1="-96" lib="tp7_lib" x1="-1204" width="870" view="schematic" height="500" cell="etapa1" geom="1,1,0,156,108,870,500,1360,768"/>
+        <Schematic y1="-212" lib="tp7_lib" x1="-1368" width="1360" view="schematic" height="746" cell="amp_rf_desarrollado" geom="1,1,2,430,222,870,500,1360,768"/>
+    </Windows>
+    <MainWindowTab tab="1"/>
+</SaveWorkspaceState>
