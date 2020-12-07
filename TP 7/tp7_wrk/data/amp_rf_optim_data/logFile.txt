@@ -59,12 +59,12 @@ Adding gmin to branches
     Matrix is singular (detected at node or branch `X1.SRC1.i').
 Adding gmin to branches
 
-SP SP1[1] <tp7_lib:amp_rf_optim:schematic>   freq=(90 MHz->110 MHz)
+SP SP1[1] <tp7_lib:amp_rf_optim:schematic>   freq=(50 MHz->200 MHz)
 
 
 SP SP2[1] <tp7_lib:amp_rf_optim:schematic>   freq=100 MHz
 
 
 Resource usage:
-  Total stopwatch time     =     6.41 seconds.
+  Total stopwatch time     =     5.58 seconds.
 

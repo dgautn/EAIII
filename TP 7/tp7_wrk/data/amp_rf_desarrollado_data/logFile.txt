@@ -18,5 +18,5 @@ SP SP1[1] <tp7_lib:amp_rf_desarrollado:schematic>   freq=(90 MHz->110 MHz)
 
 
 Resource usage:
-  Total stopwatch time     =     4.84 seconds.
+  Total stopwatch time     =     7.09 seconds.
 

@@ -10,12 +10,12 @@ SP SP1[1] <tp7_lib:bias_etapa_3:schematic>   freq=100 MHz
 
 DC DC1[1] <tp7_lib:bias_etapa_3:schematic>  
 .
-DC convergence achieved in 54 iterations.
+DC convergence achieved in 53 iterations.
 
 
 TRAN Tran1[1] <tp7_lib:bias_etapa_3:schematic>   time=(500 ns->600 ns)
 
 
 Resource usage:
-  Total stopwatch time     =     3.18 seconds.
+  Total stopwatch time     =     2.66 seconds.
 

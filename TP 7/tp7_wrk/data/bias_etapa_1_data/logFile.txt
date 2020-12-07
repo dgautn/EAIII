@@ -17,5 +17,5 @@ TRAN Tran1[1] <tp7_lib:bias_etapa_1:schematic>   time=(500 ns->600 ns)
 
 
 Resource usage:
-  Total stopwatch time     =     3.99 seconds.
+  Total stopwatch time     =     2.49 seconds.
 
